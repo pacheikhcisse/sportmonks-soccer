@@ -29,3 +29,4 @@ src/main/resources/
 src/test/
 target/
 /src/main/java/com/sportmonks/Main.java
+.gradle
