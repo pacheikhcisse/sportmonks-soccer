@@ -105,6 +105,17 @@ public class FixturesEndPoint extends AbstractEndPoint {
 	 */
 	public List<Fixture> findSeverals(final String url, final FixturesEndPointParams params) {
 
+		Fixtures fixtures = this.findSeveralsWithMeta(url, params);
+		if (fixtures != null) {
+			return fixtures.getData();
+		}
+		return new ArrayList<>();
+	}
+
+	/**
+	 * Retourne toutes les fixtures comme {@link #findSeverals(String, FixturesEndPointParams)} avec les metadata en plus
+	 */
+	public Fixtures findSeveralsWithMeta(final String url, final FixturesEndPointParams params) {
 		lastFixtureProxyCall = waitBeforeNextCall(lastFixtureProxyCall);
 
 		final Map<String, String> paramsMap = new HashMap<>();
@@ -120,9 +131,9 @@ public class FixturesEndPoint extends AbstractEndPoint {
 
 		final HttpResponse<Fixtures> httpResponse = RestTool.get(url, paramsMap, Fixtures.class);
 		try {
-			return httpResponse.getBody().getData();
+			return httpResponse.getBody();
 		} catch (Exception e) {
-			return new ArrayList<>();
+			return null;
 		}
 	}
 

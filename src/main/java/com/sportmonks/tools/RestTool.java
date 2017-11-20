@@ -24,7 +24,13 @@ public class RestTool {
 	 */
 	public static <T> HttpResponse<T> get(final String baseUrl, final Map<String, String> params, final Class<T> clazz) {
 
-		final GetRequest getRequest = Unirest.get(baseUrl + AbstractEndPoint.COMMON_URL_PARAMS);
+		String paramsUrl = AbstractEndPoint.COMMON_URL_PARAMS;
+
+		if (baseUrl.contains("?")) {
+			paramsUrl = paramsUrl.replaceFirst("\\?", "&");
+		}
+
+		final GetRequest getRequest = Unirest.get(baseUrl + paramsUrl);
 
 		config(getRequest, params);
 
