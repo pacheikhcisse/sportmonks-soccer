@@ -6,7 +6,7 @@
 
     <groupId>sn.nonstop.footnonstop</groupId>
     <artifactId>sportmonks-api</artifactId>
-    <version>1.3.0-SNAPSHOT</version>
+    <version>1.2.1</version>
     <url>SportMonks API Rest client</url>
     <description>Simplify SportMonks Soccer API v2.0 Calling in Java</description>
     <packaging>jar</packaging>
