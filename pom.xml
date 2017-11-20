@@ -4,9 +4,9 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.sportmonks</groupId>
-    <artifactId>soccer-api</artifactId>
-    <version>2.0</version>
+    <groupId>sn.nonstop.footnonstop</groupId>
+    <artifactId>sportmonks-api</artifactId>
+    <version>1.2.0</version>
     <url>SportMonks API Rest client</url>
     <description>Simplify SportMonks Soccer API v2.0 Calling in Java</description>
     <packaging>jar</packaging>
