@@ -1,6 +1,7 @@
 package com.sportmonks.endpoints;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
@@ -14,6 +15,7 @@ public class FixturesEndPointParams extends AbstractEndPointParams {
 	private String betweenFromDate;
 	private String betweenToDate;
 	private String date;
+	private List<String> leagueIdList;
 
 	/**
 	 *
@@ -91,5 +93,13 @@ public class FixturesEndPointParams extends AbstractEndPointParams {
 
 	public boolean isValidDate() {
 		return !StringUtils.isEmpty(date) && date.toString().length() == 10;
+	}
+
+	public List<String> getLeagueIdList() {
+		return leagueIdList;
+	}
+
+	public void setLeagueIdList(List<String> leagueIdList) {
+		this.leagueIdList = leagueIdList;
 	}
 }

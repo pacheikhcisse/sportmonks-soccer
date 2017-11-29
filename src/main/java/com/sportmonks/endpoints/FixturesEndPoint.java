@@ -12,6 +12,7 @@ import com.sportmonks.data.structure.OneFixture;
 import com.sportmonks.exceptions.HaveToDefineValidIdException;
 import com.sportmonks.exceptions.NotFoundException;
 import com.sportmonks.tools.RestTool;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Proxy Fixtures
@@ -22,6 +23,7 @@ public class FixturesEndPoint extends AbstractEndPoint {
 	private static final String BY_ID_URL = BASE_URL + "/{fixtureId}";
 	private static final String BY_DATE_URL = BASE_URL + "/date/{date}";
 	private static final String BY_DATE_RANGE_URL = BASE_URL + "/{from}/{to}";
+	private static final String BY_DATE_RANGE_URL_AND_LEAGUES = BASE_URL + "/{from}/{to}?leagues={leagues}";
 	private static FixturesEndPoint INSTANCE;
 	private long lastFixtureProxyCall = 0;
 
@@ -126,6 +128,9 @@ public class FixturesEndPoint extends AbstractEndPoint {
 			}
 			if (params.isValidToDate()) {
 				paramsMap.put("to", params.getBetweenToDate());
+			}
+			if (params.getLeagueIdList() != null && !params.getLeagueIdList().isEmpty()) {
+				paramsMap.put("leagues", StringUtils.join(params.getLeagueIdList(), ","));
 			}
 		}
 

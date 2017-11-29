@@ -13,10 +13,16 @@ import com.sportmonks.data.structure.Coachs;
 import com.sportmonks.data.structure.FifaRanking;
 import com.sportmonks.data.structure.Squad;
 import com.sportmonks.data.structure.UefaRanking;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({ "id", "legacy_id", "name", "twitter", "country_id", "national_team", "founded", "logo_path", "venue_id", "squad", "venue", "coach",
-		"fifaranking", "uefaranking" })
+		"fifaRanking", "uefaRanking" })
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class Team {
 
 	@JsonProperty("id")
@@ -43,9 +49,9 @@ public class Team {
 	private Venue venue;
 	@JsonProperty("coach")
 	private Coachs coachs;
-	@JsonProperty("fifaranking")
+	@JsonProperty("fifaRanking")
 	private FifaRanking fifaRanking;
-	@JsonProperty("uefaranking")
+	@JsonProperty("uefaRanking")
 	private UefaRanking uefaRanking;
 	@JsonIgnore
 	private Map<String, Object> additionalProperties = new HashMap<String, Object>();

@@ -9,9 +9,15 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({ "localteam_score", "visitorteam_score", "localteam_pen_score", "visitorteam_pen_score", "ht_score", "ft_score", "et_score" })
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class FixtureScores {
 
 	@JsonProperty("localteam_score")

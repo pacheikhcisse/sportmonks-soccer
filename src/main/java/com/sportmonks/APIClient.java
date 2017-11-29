@@ -228,6 +228,26 @@ public class APIClient {
 	}
 
 	/**
+	 * Retourne une instance du proxy RoundsEndPoint
+	 *
+	 * @return
+	 */
+	public RoundsEndPoint getRoundsEndPointInstance() {
+		checkInstance();
+		return RoundsEndPoint.getInstance(APIClient.CLASSIC_PLAN_RATE_LIMIT);
+	}
+
+	/**
+	 * Retourne une instance du proxy RoundsEndPoint
+	 *
+	 * @return
+	 */
+	public RoundsEndPoint getRoundsEndPointInstance(final Double hourRateLimit) {
+		checkInstance();
+		return RoundsEndPoint.getInstance(hourRateLimit);
+	}
+
+	/**
 	 * Retourne une instance du proxy Season
 	 *
 	 * @return
