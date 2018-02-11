@@ -9,9 +9,13 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({ "total_crosses", "crosses_accuracy", "passes", "passes_accuracy" })
+@EqualsAndHashCode
+@ToString
 public class StatsPassing {
 
 	@JsonProperty("total_crosses")

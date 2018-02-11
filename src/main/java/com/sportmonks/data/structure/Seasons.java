@@ -6,12 +6,16 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.sportmonks.data.entity.Season;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import java.util.List;
 import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({ "data" })
+@EqualsAndHashCode
+@ToString
 public class Seasons extends AbstractEndPointResponse {
 
 	@JsonProperty("data")

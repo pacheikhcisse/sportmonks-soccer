@@ -1,12 +1,16 @@
 package com.sportmonks.data.entity;
 
 import com.fasterxml.jackson.annotation.*;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import java.util.HashMap;
 import java.util.Map;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({ "total", "count", "per_page", "current_page", "total_pages", "links" })
+@EqualsAndHashCode
+@ToString
 public class MetaPagination {
 
 	@JsonProperty("total")

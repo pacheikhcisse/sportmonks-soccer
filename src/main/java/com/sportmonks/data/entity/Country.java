@@ -12,9 +12,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.sportmonks.data.structure.Continents;
 import com.sportmonks.data.structure.Leagues;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({ "id", "name", "extra", "continent", "leagues" })
+@EqualsAndHashCode
+@ToString
 public class Country {
 
 	@JsonProperty("id")

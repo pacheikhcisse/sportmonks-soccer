@@ -10,10 +10,14 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.sportmonks.data.structure.Formations;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({ "id", "league_id", "season_id", "stage_id", "round_id", "aggregate_id", "venue_id", "referee_id", "localteam_id", "visitorteam_id",
 		"weather_report", "commentaries", "attendance", "winning_odds_calculated", "formations", "scores", "time", "deleted" })
+@EqualsAndHashCode
+@ToString
 public class Result {
 
 	@JsonProperty("id")

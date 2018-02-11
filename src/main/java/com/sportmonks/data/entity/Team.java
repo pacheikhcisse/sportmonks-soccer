@@ -15,7 +15,9 @@ import com.sportmonks.data.structure.Squad;
 import com.sportmonks.data.structure.UefaRanking;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({ "id", "legacy_id", "name", "twitter", "country_id", "national_team", "founded", "logo_path", "venue_id", "squad", "venue", "coach",
@@ -23,6 +25,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode
+@ToString
 public class Team {
 
 	@JsonProperty("id")

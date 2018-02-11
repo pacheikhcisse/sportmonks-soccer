@@ -10,9 +10,13 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.sportmonks.data.structure.OfferBookmakers;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({ "name", "bookmaker" })
+@EqualsAndHashCode
+@ToString
 public class Offer {
 
 	@JsonProperty("name")

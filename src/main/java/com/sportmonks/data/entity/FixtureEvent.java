@@ -9,10 +9,14 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({ "id", "team_id", "type", "fixture_id", "player_id", "player_name", "related_player_id", "related_player_name", "minute", "extra_minute",
 		"reason", "injuried" })
+@EqualsAndHashCode
+@ToString
 public class FixtureEvent {
 
 	@JsonProperty("id")

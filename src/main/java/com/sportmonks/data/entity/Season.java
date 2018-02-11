@@ -2,6 +2,8 @@ package com.sportmonks.data.entity;
 
 import com.fasterxml.jackson.annotation.*;
 import com.sportmonks.data.structure.*;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -9,6 +11,8 @@ import java.util.Map;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({ "type", "id", "name", "league_id", "is_current_season", "current_round_id", "current_stage_id", "league", "attributes", "fixtures",
 		"results", "relationships", "rounds", "stages" })
+@EqualsAndHashCode
+@ToString
 public class Season {
 	@JsonProperty("id")
 	private Long id;

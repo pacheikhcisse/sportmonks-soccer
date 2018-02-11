@@ -15,9 +15,13 @@ import com.sportmonks.data.entity.StatsGoals;
 import com.sportmonks.data.entity.StatsOther;
 import com.sportmonks.data.entity.StatsPassing;
 import com.sportmonks.data.entity.StatsShots;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({ "shots", "goals", "fouls", "cards", "passing", "other" })
+@EqualsAndHashCode
+@ToString
 public class Stats {
 
 	@JsonProperty("shots")

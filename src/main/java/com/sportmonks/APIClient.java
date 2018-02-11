@@ -6,6 +6,7 @@ import com.mashape.unirest.http.ObjectMapper;
 import com.mashape.unirest.http.Unirest;
 import com.sportmonks.endpoints.*;
 import com.sportmonks.exceptions.InvalidServiceInstanceException;
+import org.apache.http.HttpHost;
 import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.ssl.SSLContexts;
@@ -26,14 +27,18 @@ public class APIClient {
 
 	/**
 	 * @param apiToken
+	 * @param proxy if exist
 	 */
-	private APIClient(final String apiToken) {
+	private APIClient(final String apiToken, HttpHost proxy) {
 		super();
 		// Hide constructor
 		this.apiToken = apiToken;
 
 		Unirest.setObjectMapper(createObjectMapper());
 		Unirest.setHttpClient(createSSLHttpClient());
+		if (proxy != null) {
+			Unirest.setProxy(proxy);
+		}
 	}
 
 	/**
@@ -59,9 +64,9 @@ public class APIClient {
 	 * @param apiToken
 	 * @return
 	 */
-	public static APIClient getInstance(final String apiToken) {
+	public static APIClient getInstance(final String apiToken, HttpHost proxy) {
 		if (INSTANCE == null || INSTANCE.getApiToken() == null || !INSTANCE.getApiToken().equals(apiToken)) {
-			INSTANCE = new APIClient(apiToken);
+			INSTANCE = new APIClient(apiToken, proxy);
 		}
 
 		return INSTANCE;
