@@ -5,6 +5,7 @@ import com.sportmonks.data.entity.Fixture;
 import com.sportmonks.data.structure.Livescores;
 import com.sportmonks.exceptions.NotFoundException;
 import com.sportmonks.tools.RestTool;
+import org.apache.commons.lang3.StringUtils;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,6 +18,8 @@ import java.util.Map;
 public class LivescoresEndPoint extends AbstractEndPoint {
 
 	private static final String BASE_URL = AbstractEndPoint.API_URL + AbstractEndPoint.VERSION + "/livescores";
+	private static final String BASE_URL_BY_LEAGUES = AbstractEndPoint.API_URL + AbstractEndPoint.VERSION
+			+ "/livescores?leagues={leagues}";
 	private static final String CURRENTLY_PLAYED_URL = BASE_URL + "/now";
 
 	private static LivescoresEndPoint INSTANCE;
@@ -53,6 +56,9 @@ public class LivescoresEndPoint extends AbstractEndPoint {
 		final Map<String, String> paramsMap = new HashMap<>();
 		if (params != null) {
 			paramsMap.put("includes", params.getRelations());
+			if (params.getLeagueIdList() != null && !params.getLeagueIdList().isEmpty()) {
+				paramsMap.put("leagues", StringUtils.join(params.getLeagueIdList(), ","));
+			}
 		}
 
 		final HttpResponse<Fixture> httpResponse = RestTool.get(url, paramsMap, Fixture.class);
@@ -75,6 +81,9 @@ public class LivescoresEndPoint extends AbstractEndPoint {
 		final Map<String, String> paramsMap = new HashMap<>();
 		if (params != null) {
 			paramsMap.put("includes", params.getRelations());
+			if (params.getLeagueIdList() != null && !params.getLeagueIdList().isEmpty()) {
+				paramsMap.put("leagues", StringUtils.join(params.getLeagueIdList(), ","));
+			}
 		}
 
 		final HttpResponse<Livescores> httpResponse = RestTool.get(url, paramsMap, Livescores.class);
@@ -116,6 +125,10 @@ public class LivescoresEndPoint extends AbstractEndPoint {
 
 	public List<Fixture> findToday(final LivescoresEndPointParams params) {
 		return find(BASE_URL, params);
+	}
+
+	public List<Fixture> findTodayByLeagues(final LivescoresEndPointParams params) {
+		return find(BASE_URL_BY_LEAGUES, params);
 	}
 
 	/**

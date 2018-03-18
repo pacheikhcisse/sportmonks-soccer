@@ -1,6 +1,7 @@
 package com.sportmonks.endpoints;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
@@ -10,6 +11,8 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class LivescoresEndPointParams extends AbstractEndPointParams {
 	private final Set<String> relations = new HashSet<>();
+	private List<String> leagueIdList;
+
 
 	/**
 	 * @param relation
@@ -25,4 +28,11 @@ public class LivescoresEndPointParams extends AbstractEndPointParams {
 		return StringUtils.join(relations, ",");
 	}
 
+	public List<String> getLeagueIdList() {
+		return leagueIdList;
+	}
+
+	public void setLeagueIdList(List<String> leagueIdList) {
+		this.leagueIdList = leagueIdList;
+	}
 }
